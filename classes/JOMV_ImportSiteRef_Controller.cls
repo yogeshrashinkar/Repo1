@@ -7,14 +7,13 @@
 public class JOMV_ImportSiteRef_Controller {
     @AuraEnabled
     public static User getUser(){
+	//Added comments here
         return [SELECT FirstName,LastName FROM User WHERE Id=: UserInfo.getUserId()];
     }
     
     @AuraEnabled
     public static void importSiteReferences(List<List<string>> data){
-        system.debug('data  : '+  data);
-		//Comment added for test
-		//Comment added for testBranch 1		
+        system.debug('data  : '+  data);				
         List<JOMV_Site_Reference__c> importSiteRef = new List<JOMV_Site_Reference__c>();
         set<Id> siteRefIds = new set<Id>();
         for(List<string> row : data ){
